@@ -1,0 +1,6 @@
+/* THis is scoped styling. import it whwerever you need it */
+/* module.css only targets classes */
+
+.myHeader{
+    background-color: yellowgreen;
+}
