@@ -1,5 +1,8 @@
 import React from "react";
 import simeonStyle from "./simeon.module.css";
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   let myAge = 100;
