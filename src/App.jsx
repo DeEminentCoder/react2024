@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./components/Navbar";
 import simeonStyle from "./simeon.module.css";
 
 const App = () => {

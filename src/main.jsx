@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import './mine.css'
-import Navbar from './components/Navbar.jsx'
+import UstateOne from './components/UstateOne.jsx'
+import UstateTwo from './components/UstateTwo.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
-    <Navbar></Navbar>
+    <UstateOne></UstateOne>
+    <UstateTwo></UstateTwo>
   </React.StrictMode>,
 )
