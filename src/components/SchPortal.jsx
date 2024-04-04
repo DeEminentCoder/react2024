@@ -46,13 +46,21 @@ const SchPortal = () => {
           Submit
         </button>
         <hr />
-        {allStudents.map((student, index) => (
-          <div key={index} className="">
-            <h1>{student.firstname}</h1>
-            <button>Edit</button>
-            <button>Delete</button>
-          </div>
-        ))}
+        {allStudents.length == 0 ? (
+          <h1>No Student</h1>
+        ) : (
+          allStudents.map((student, index) => (
+            <div key={index} className="d-flex my-2">
+              <h1 className="">{student.firstname}</h1>
+              <button className="btn btn-sm btn-outline-success px-4 ms-5">
+                Edit
+              </button>
+              <button className="btn btn-sm btn-outline-danger px-4 ms-2 ">
+                Delete
+              </button>
+            </div>
+          ))
+        )}
       </div>
     </>
   );
