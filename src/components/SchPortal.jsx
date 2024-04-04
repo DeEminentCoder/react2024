@@ -10,8 +10,17 @@ const SchPortal = () => {
 
   const register = () => {
     let student = { firstname, lastname, email, password };
+        // Check for empty fields
+        if (!firstname || !lastname || !email || !password) {
+          alert("Please fill in all required fields.");
+          return; // Prevent further execution if validation fails
+        }
     console.log(student);
     setallStudents([...allStudents, student]);
+    setfirstname("");
+    setlastname("");
+    setemail("");
+    setpassword("");
   };
 
   return (
@@ -23,24 +32,28 @@ const SchPortal = () => {
           className="form-control form-control-lg m-2"
           placeholder="FirstName"
           onChange={(e) => setfirstname(e.target.value)}
+          value={firstname}
         />
         <input
           type="text"
           className="form-control form-control-lg m-2"
           placeholder="LastName"
           onChange={(e) => setlastname(e.target.value)}
+          value={lastname}
         />
         <input
           type="email"
           className="form-control form-control-lg m-2"
           placeholder="Email"
           onChange={(e) => setemail(e.target.value)}
+          value={email}
         />
         <input
           type="password"
           className="form-control form-control-lg m-2"
           placeholder="Password"
           onChange={(e) => setpassword(e.target.value)}
+          value={password}
         />
         <button className="btn btn-lg btn-dark " onClick={register}>
           Submit
