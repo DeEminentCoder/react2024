@@ -10,7 +10,7 @@ const SchPortal = () => {
   const [editedIndex, seteditedIndex] = useState(0);
   const [editedValue, seteditedValue] = useState(0);
   const [editedfirstname, seteditedfirstname] = useState("");
-  const [editedsecondname, seteditedsecondname] = useState("");
+  const [editedlastname, seteditedlastname] = useState("");
   const [editedemail, seteditedemail] = useState("");
   const [editedpassword, seteditedpassword] = useState("");
 
@@ -39,13 +39,21 @@ const SchPortal = () => {
     seteditedIndex(ind);
     let selectedUser = allStudents[ind];
     seteditedfirstname(selectedUser.firstname);
-    seteditedsecondname(selectedUser.lastname);
+    seteditedlastname(selectedUser.lastname);
     seteditedemail(selectedUser.email);
     seteditedpassword(selectedUser.password);
     seteditedValue(selectedUser);
   };
   const updateDetails = () => {
-    let updateDetails ={editedfirstname, editedsecondname, editedemail, editedpassword}
+    let updateDetails = {
+      firstname: editedfirstname,
+      lastname: editedlastname,
+      email: editedemail,
+      password: editedpassword,
+    };
+    let newAllStudents = [...allStudents];
+    newAllStudents[editedIndex] = updateDetails;
+    setallStudents(newAllStudents)
   };
 
   return (
@@ -89,7 +97,7 @@ const SchPortal = () => {
         ) : (
           allStudents.map((student, index) => (
             <div key={index} className="d-flex my-2">
-              <h1 className="">{student.firstname}</h1>
+              <h1 className="">{student.firstname } { student.lastname}</h1>
               <button
                 className="btn btn-sm btn-outline-warning px-4 ms-5"
                 data-bs-toggle="modal"
@@ -142,8 +150,8 @@ const SchPortal = () => {
                 type="text"
                 className="form-control form-control-lg m-2"
                 placeholder="LastName"
-                value={editedsecondname}
-                onChange={(e) => seteditedsecondname(e.target.value)}
+                value={editedlastname}
+                onChange={(e) => seteditedlastname(e.target.value)}
               />
               <input
                 type="email"
@@ -171,6 +179,7 @@ const SchPortal = () => {
               <button
                 type="button"
                 className="btn btn-primary"
+                data-bs-dismiss="modal"
                 onClick={updateDetails}
               >
                 Save changes
